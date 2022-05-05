@@ -15,13 +15,25 @@ public class Zadanie1 {
                 "-. odejmowanie" +
                 "*. mnożenie" +
                 "/ . dzielenie");
-        String dzialanie = dzialanie();
-        System.out.println(a + b);
+        char o = pobierzZnak();
+        if(o == '+'){
+            System.out.println(a+b);
+        }
+        if(o == '-'){
+            System.out.println(a-b);
+        }
+        if(o == '*'){
+            System.out.println(a*b);
+        }
+        if(o == '/'){
+            System.out.println(a/b);
+        }
 
     }
     public static void wyjatek(String tekst) throws IOException {
         throw new IOException("blad"+tekst);
     }
+
     public static int pobierzLiczbe(){
         Scanner scanner=new Scanner(System.in);
 
@@ -33,17 +45,18 @@ public class Zadanie1 {
             return pobierzLiczbe();
         }
     }
-    public static String dzialanie(){
-        Scanner scanner=new Scanner(System.in);
-        try{
-            String znak = scanner.nextLine();
-            return znak;
+    public static char pobierzZnak() {
+        Scanner scanner = new Scanner(System.in);
+        char o = scanner.next().charAt(0);
+
+        if (o == '/' || o == '*' || o == '+' || o == '-') {
+            return o;
         }
-        catch(ArithmeticException e){
-            System.out.println("nie poprawnie działanie sprobuj ponownie");
-            return dzialanie();
-        }
+        System.out.println("sprobuj ponownie");
+        return pobierzZnak();
     }
+
+
 
 
 }

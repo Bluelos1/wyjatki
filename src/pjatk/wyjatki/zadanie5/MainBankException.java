@@ -42,7 +42,7 @@ public class MainBankException {
             System.out.println("wprowadzono nie prawidlowa liczbe sprobuj ponownie");
             return getAmount();
         }
-
+//wrapper do integer i do double
 
     }
 
